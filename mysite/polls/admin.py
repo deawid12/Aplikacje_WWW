@@ -17,6 +17,3 @@ class StanowiskoAdmin(admin.ModelAdmin):
 
 admin.site.register(Osoba, OsobaAdmin)
 admin.site.register(Stanowisko, StanowiskoAdmin)
-
-
-

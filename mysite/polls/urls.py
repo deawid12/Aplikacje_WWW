@@ -16,5 +16,3 @@ urlpatterns = [
     path('osoby/', person_list, name='person-list'),
     path('osoby/<int:pk>/', person_detail, name='person-detail'),
 ]
-
-
