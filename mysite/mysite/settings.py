@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'mysite',
     'debug_toolbar',
     'polls',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
