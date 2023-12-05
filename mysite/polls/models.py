@@ -1,6 +1,10 @@
 from django.db import models
 
-# Create your models here.
+class MyModel(models.Model):
+    # Pole dla nazwy, maksymalna długość 100 znaków
+    name = models.CharField(max_length=100)
+    def __str__(self):
+        return self.name
 class Osoba(models.Model):
     PLEC_CHOICES = [
         ('kobieta', 'Kobieta'),
