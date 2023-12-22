@@ -6,14 +6,15 @@ class OsobaAdmin(admin.ModelAdmin):
     def stanowisko_display(self, obj):
         return f'{obj.stanowisko.nazwa} ({obj.stanowisko.id})'
 
-    list_display = ('imie', 'nazwisko', 'plec', 'stanowisko_display', 'data_dodania')
-    search_fields = ('imie', 'nazwisko')
-    list_filter = ('stanowisko', 'data_dodania')  # Dodaj filtry dla stanowiska i daty utworzenia
+    list_display = ['imie', 'nazwisko', 'plec', 'stanowisko_display', 'data_dodania']
+    list_filter = ['stanowisko', 'data_dodania']
+    readonly_fields = ["data_dodania"]
+    @admin.display(description='Stanowisko (id)')
+    def Stanowisko_ID(self, object):
+        return f"{object.stanowisko.nazwa} {object.stanowisko.id}"
 
 class StanowiskoAdmin(admin.ModelAdmin):
-    list_display = ('nazwa',)
-    search_fields = ('nazwa',)
-    ordering = ('nazwa',)  # Dodaj sortowanie alfabetyczne dla nazw stanowisk
+    list_filter =['nazwa']
 
 admin.site.register(Osoba, OsobaAdmin)
 admin.site.register(Stanowisko, StanowiskoAdmin)
